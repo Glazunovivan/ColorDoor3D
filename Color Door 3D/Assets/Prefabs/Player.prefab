@@ -157,7 +157,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Designer@Jogging
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2145778804, guid: d036a2715c611d14eb13a5078539d92a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d036a2715c611d14eb13a5078539d92a, type: 3}
 --- !u!4 &3393866597233901046 stripped
 Transform:

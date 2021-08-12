@@ -27,6 +27,11 @@ public class MovePlayer : MonoBehaviour
         _joystick = FindObjectOfType<FixedJoystick>();
         //_statePlayer = FindObjectOfType<StatePlayer>();
         PlayerCollider.Finish += StopRun;
+        _distanceTravelled += _speed * Time.deltaTime;
+        transform.position = new Vector3(_pathCreator.path.GetPointAtDistance(_distanceTravelled).x,
+                                         _pathCreator.path.GetPointAtDistance(_distanceTravelled).y,
+                                         _pathCreator.path.GetPointAtDistance(_distanceTravelled).z + _currentPositionZ);
+        transform.rotation = _pathCreator.path.GetRotationAtDistance(_distanceTravelled);
     }
 
     private void Update()
