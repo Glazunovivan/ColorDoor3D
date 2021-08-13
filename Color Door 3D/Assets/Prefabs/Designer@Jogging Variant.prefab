@@ -109,7 +109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 2
   _isRun: 0
-  _statePlayer: {fileID: 0}
   _currentPositionZ: 0
 --- !u!114 &1643675152309008515
 MonoBehaviour:

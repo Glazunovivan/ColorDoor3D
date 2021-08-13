@@ -63,7 +63,6 @@ public class Game : MonoBehaviour
         _fail.SetActive(true);
         //остановка персонажа
         _player.StopRun();
-        _joystick.gameObject.SetActive(false);
     }
 
     public void Finish()
@@ -71,13 +70,11 @@ public class Game : MonoBehaviour
         Debug.Log("Финиш!");
         _complete.SetActive(true);
         _player.StopRun();
-        _joystick.gameObject.SetActive(false);
     }
 
     public void HitTheWall()
     {
         _fail.SetActive(true);
-        _joystick.gameObject.SetActive(false);
     }
 
     public void IncrementCountWrongDoor()

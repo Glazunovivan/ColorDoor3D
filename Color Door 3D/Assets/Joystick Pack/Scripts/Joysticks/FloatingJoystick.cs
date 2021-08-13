@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class FloatingJoystick : Joystick
-{
+public class FloatingJoystick : Joystick { 
     protected override void Start()
     {
         base.Start();
@@ -21,6 +20,6 @@ public class FloatingJoystick : Joystick
     public override void OnPointerUp(PointerEventData eventData)
     {
         background.gameObject.SetActive(false);
-        base.OnPointerUp(eventData);
+        //base.OnPointerUp(eventData);
     }
 }

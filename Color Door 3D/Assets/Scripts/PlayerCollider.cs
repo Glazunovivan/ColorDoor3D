@@ -21,9 +21,9 @@ public class PlayerCollider : MonoBehaviour
         {
             Debug.Log("Коснулись стены!");
             //перезагрузка
-            _game.HitTheWall();
-            _movePlayer.StopRun();
-            _statePlayer.StopAnimationMove();
+            //_game.HitTheWall();
+            //_movePlayer.StopRunIntoObstacle();
+            //_statePlayer.StopAnimationMove();
         }
 
         if (other.CompareTag("Finish"))

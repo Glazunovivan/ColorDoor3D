@@ -12,12 +12,17 @@ public class MovePlayer : MonoBehaviour
     [SerializeField] private float _currentPositionZ;
     private StatePlayer _statePlayer;
 
+    private Rigidbody _rigidbody;
 
     private void Start()
     {
+        _rigidbody = GetComponent<Rigidbody>();
         _pathCreator = FindObjectOfType<PathCreator>();
-        TransformPositionPlayer();
         _statePlayer = FindObjectOfType<StatePlayer>();
+        transform.rotation = _pathCreator.path.GetRotationAtDistance(_distanceTravelled);
+        transform.position = new Vector3(_pathCreator.path.GetPointAtDistance(_distanceTravelled).x,
+                                         _pathCreator.path.GetPointAtDistance(_distanceTravelled).y,
+                                         _pathCreator.path.GetPointAtDistance(_distanceTravelled).z);
     }
 
     private void Update()
@@ -39,6 +44,9 @@ public class MovePlayer : MonoBehaviour
         transform.position = new Vector3(_pathCreator.path.GetPointAtDistance(_distanceTravelled).x,
                                          _pathCreator.path.GetPointAtDistance(_distanceTravelled).y,
                                          _pathCreator.path.GetPointAtDistance(_distanceTravelled).z);
+        //_rigidbody.MovePosition(new Vector3(_pathCreator.path.GetPointAtDistance(_distanceTravelled).x,
+        //                                 _pathCreator.path.GetPointAtDistance(_distanceTravelled).y,
+        //                                 _pathCreator.path.GetPointAtDistance(_distanceTravelled).z));
     }
 
     public void StartRun()
@@ -49,6 +57,10 @@ public class MovePlayer : MonoBehaviour
     public void StopRun()
     {
         _statePlayer.StopAnimationMove();
+        _isRun = false;
+    }
+    public void StopRunIntoObstacle()
+    {
         _isRun = false;
     }
 
