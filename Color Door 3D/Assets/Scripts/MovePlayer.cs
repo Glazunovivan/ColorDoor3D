@@ -12,8 +12,7 @@ public class MovePlayer : MonoBehaviour
 
     [SerializeField] private bool _isRun = false;
     private FixedJoystick _joystick;
-    private float _currentPositionZ;
-    //private StatePlayer _statePlayer;
+    [SerializeField] private float _currentPositionZ;
 
     //событие
     public delegate void State();
@@ -49,10 +48,10 @@ public class MovePlayer : MonoBehaviour
         {
             _currentPositionZ = _joystick.Horizontal * _speedSlide;
         }
+        transform.eulerAngles = _pathCreator.path.GetRotationAtDistance(_distanceTravelled).eulerAngles;
         transform.position = new Vector3(_pathCreator.path.GetPointAtDistance(_distanceTravelled).x,
                                          _pathCreator.path.GetPointAtDistance(_distanceTravelled).y,
-                                         _pathCreator.path.GetPointAtDistance(_distanceTravelled).z + _currentPositionZ);
-        transform.rotation = _pathCreator.path.GetRotationAtDistance(_distanceTravelled);
+                                         (_pathCreator.path.GetPointAtDistance(_distanceTravelled).z + _currentPositionZ));
     }
 
     public void StartRun()
