@@ -8,17 +8,20 @@ public class Door : MonoBehaviour
     [Tooltip("True - если дверь правильная")]
     [SerializeField] private bool _isRightDoor;
     private Animator _animator;
-
+    private Game _game;
     #region Events
-    public delegate void OpenDoorDelegate();
-    public static event OpenDoorDelegate OpenDoorWrong;
+    //public delegate void OpenDoorDelegate();
+    //public static event OpenDoorDelegate OpenDoorWrong;
 
     public UnityEvent WrongEvent;
     #endregion
+    private StatePlayer _statePlayer;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
+        _game = FindObjectOfType<Game>();
+        _statePlayer = FindObjectOfType<StatePlayer>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -33,9 +36,9 @@ public class Door : MonoBehaviour
     {
         if (!_isRightDoor)
         {
-            //called event
-            OpenDoorWrong?.Invoke();
-            WrongEvent.Invoke();
+            _game.IncrementCountWrongDoor();
+            WrongEvent?.Invoke();
+            _statePlayer.PlayAnimationNumbness();
         }
         StartAnimation();
     }

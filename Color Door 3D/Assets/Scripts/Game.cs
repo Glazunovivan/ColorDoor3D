@@ -10,13 +10,14 @@ public class Game : MonoBehaviour
     [SerializeField] private GameObject _fail;
     [SerializeField] private GameObject _complete;
 
+    private FixedJoystick _joystick;
     private MovePlayer _player;
     private bool _isGaming;
 
-    private void Awake()
+    private void Start()
     {
         //подписка на событие
-        Door.OpenDoorWrong += IncrementCountWrongDoor;
+        //Door.OpenDoorWrong += IncrementCountWrongDoor;
         //инициализируем счетчик неправильных дверей
         _countWrongDoor = 0;
 
@@ -27,6 +28,7 @@ public class Game : MonoBehaviour
         PlayerCollider.Finish += Finish;
         _player = FindObjectOfType<MovePlayer>();
         _isGaming = false;
+        _joystick = FindObjectOfType<FixedJoystick>();
     }
 
     private void Update()
@@ -43,6 +45,7 @@ public class Game : MonoBehaviour
     private void DisplayTip()
     {
         _tip.SetActive(true);
+        //_joystick.gameObject.SetActive(false);
     }
 
     private void CloseTip()
@@ -50,6 +53,7 @@ public class Game : MonoBehaviour
         _isGaming = true;
         _tip.SetActive(false);
         _player.StartRun();
+        //_joystick.gameObject.SetActive(true);
     }
 
     private void EndGame()
@@ -59,16 +63,24 @@ public class Game : MonoBehaviour
         _fail.SetActive(true);
         //остановка персонажа
         _player.StopRun();
+        _joystick.gameObject.SetActive(false);
     }
 
-    private void Finish()
+    public void Finish()
     {
         Debug.Log("Финиш!");
         _complete.SetActive(true);
         _player.StopRun();
+        _joystick.gameObject.SetActive(false);
     }
 
-    private void IncrementCountWrongDoor()
+    public void HitTheWall()
+    {
+        _fail.SetActive(true);
+        _joystick.gameObject.SetActive(false);
+    }
+
+    public void IncrementCountWrongDoor()
     {
         if(_countWrongDoor == 2)
         {

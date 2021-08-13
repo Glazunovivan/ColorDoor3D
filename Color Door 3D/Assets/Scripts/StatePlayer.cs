@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class StatePlayer : MonoBehaviour
 {
     #region Animation
@@ -9,33 +10,39 @@ public class StatePlayer : MonoBehaviour
     private int _numbnessHash = Animator.StringToHash("Numbness");
     #endregion
 
+    private MovePlayer _movePlayer;
+
     void Start()
     {
+        _movePlayer = FindObjectOfType<MovePlayer>();
         _animator = GetComponent<Animator>();
         //Events
-        Door.OpenDoorWrong += PlayAnimationNumbness;
+        /*Door.OpenDoorWrong += PlayAnimationNumbness;
         PlayerCollider.Finish += PlayAnimationVictory;
         MovePlayer.Move += PlayAnimationMove;
-        MovePlayer.StopMove += StopAnimationMove;
+        MovePlayer.StopMove += StopAnimationMove;*/
     }
 
-    private void PlayAnimationMove()
+    public void PlayAnimationMove()
     {
+        //_movePlayer.StartRun();
         _animator.SetBool(_runHash, true);
     }
 
-    private void StopAnimationMove()
+    public void StopAnimationMove()
     {
+        //_movePlayer.StopRun();
         _animator.SetBool(_runHash, false);
     }
 
-    private void PlayAnimationNumbness()
+    public void PlayAnimationNumbness()
     {
         _animator.SetTrigger(_numbnessHash);
     }
 
-    private void PlayAnimationVictory()
+    public void PlayAnimationVictory()
     {
+        //_movePlayer.StopRun();
         _animator.SetBool(_victoryHash, true);
     }
 
