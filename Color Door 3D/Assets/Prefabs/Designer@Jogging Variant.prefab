@@ -9,9 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 895811072}
-  - component: {fileID: 895811074}
-  - component: {fileID: 1663172819992656636}
-  - component: {fileID: 6893740701816288312}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Player
@@ -33,49 +30,36 @@ Transform:
   m_Father: {fileID: 357298071609667387}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &895811074
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 895811071}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.23549546
-  m_Height: 1.3662368
-  m_Direction: 1
-  m_Center: {x: 0.025433103, y: -0.050866205, z: -0.045779645}
---- !u!54 &1663172819992656636
+--- !u!54 &6018237635030004288
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 895811071}
+  m_GameObject: {fileID: 1134537805071496577}
   serializedVersion: 2
-  m_Mass: 0.0000001
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &6893740701816288312
-MonoBehaviour:
+--- !u!136 &418382396734402609
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 895811071}
+  m_GameObject: {fileID: 1134537805071496577}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee6fd7b5fc23feb41a83c5094dd80013, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _statePlayer: {fileID: 2686096315787859281}
+  m_Radius: 0.17201771
+  m_Height: 1.5248258
+  m_Direction: 1
+  m_Center: {x: 0.014511247, y: 0.8268083, z: 0}
 --- !u!95 &2145778803
 Animator:
   serializedVersion: 3
@@ -120,6 +104,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46db419548042a44990460e195926aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2046026083045102440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134537805071496577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee6fd7b5fc23feb41a83c5094dd80013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2686096315787859281

@@ -132,9 +132,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 166501189}
+  - component: {fileID: 166501190}
+  - component: {fileID: 166501191}
+  - component: {fileID: 166501192}
   m_Layer: 0
   m_Name: Doors
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,6 +160,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &166501190
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166501188}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.06376004, y: 0.72378457, z: 0.41784722}
+  m_Center: {x: 0.027861, y: 0.35043174, z: 0.0024233162}
+--- !u!65 &166501191
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166501188}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.06170249, y: 0.73576796, z: 0.20779407}
+  m_Center: {x: 0.025263667, y: 0.3507678, z: -0.6991622}
+--- !u!65 &166501192
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166501188}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.10733676, y: 0.71239173, z: 0.23633659}
+  m_Center: {x: -0.052021623, y: 0.3664375, z: 0.68849176}
 --- !u!1 &213282173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,19 +1130,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.55
       objectReference: {fileID: 0}
-    - target: {fileID: 1918144094479360656, guid: 1a55b692637eaed488eeed9bb98c7802, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1985065562665607448, guid: 1a55b692637eaed488eeed9bb98c7802, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5297273157561583554, guid: 1a55b692637eaed488eeed9bb98c7802, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6487641263689860374, guid: 1a55b692637eaed488eeed9bb98c7802, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}

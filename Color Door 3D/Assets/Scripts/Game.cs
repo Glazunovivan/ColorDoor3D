@@ -10,6 +10,8 @@ public class Game : MonoBehaviour
     [SerializeField] private GameObject _fail;
     [SerializeField] private GameObject _complete;
 
+    
+    private TipRightDoor _tipRightDoor;
     private FixedJoystick _joystick;
     private MovePlayer _player;
     private bool _isGaming;
@@ -23,7 +25,8 @@ public class Game : MonoBehaviour
 
         _fail.SetActive(false);
         _complete.SetActive(false);
-        
+        _tipRightDoor = FindObjectOfType<TipRightDoor>();
+
         DisplayTip();
         PlayerCollider.Finish += Finish;
         _player = FindObjectOfType<MovePlayer>();
@@ -33,7 +36,7 @@ public class Game : MonoBehaviour
 
     private void Update()
     {
-        if (!_isGaming)
+        if (!_isGaming && _tipRightDoor.IsAllowedToPlay)
         {
             if(Input.GetMouseButtonDown(0))
             {

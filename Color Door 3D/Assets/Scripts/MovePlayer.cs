@@ -9,14 +9,15 @@ public class MovePlayer : MonoBehaviour
 
     [SerializeField] private float _speed;
     [SerializeField] private bool _isRun = false;
-    [SerializeField] private float _currentPositionZ;
     private StatePlayer _statePlayer;
 
+    //для движения с rigidbody
     private Rigidbody _rigidbody;
 
     private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody = GetComponentInChildren<Rigidbody>();
+        //_rigidbody = GetComponent<Rigidbody>();
         _pathCreator = FindObjectOfType<PathCreator>();
         _statePlayer = FindObjectOfType<StatePlayer>();
         transform.rotation = _pathCreator.path.GetRotationAtDistance(_distanceTravelled);
@@ -30,7 +31,7 @@ public class MovePlayer : MonoBehaviour
         if (_isRun)
         {
             RunPlayer();
-        }    
+        }
     }
 
     private void RunPlayer()
@@ -39,14 +40,11 @@ public class MovePlayer : MonoBehaviour
     }
     private void TransformPositionPlayer()
     {
-        _distanceTravelled += _speed * Time.deltaTime;
+        _distanceTravelled +=  _speed * Time.deltaTime;
         transform.rotation = _pathCreator.path.GetRotationAtDistance(_distanceTravelled);
         transform.position = new Vector3(_pathCreator.path.GetPointAtDistance(_distanceTravelled).x,
                                          _pathCreator.path.GetPointAtDistance(_distanceTravelled).y,
                                          _pathCreator.path.GetPointAtDistance(_distanceTravelled).z);
-        //_rigidbody.MovePosition(new Vector3(_pathCreator.path.GetPointAtDistance(_distanceTravelled).x,
-        //                                 _pathCreator.path.GetPointAtDistance(_distanceTravelled).y,
-        //                                 _pathCreator.path.GetPointAtDistance(_distanceTravelled).z));
     }
 
     public void StartRun()
@@ -57,6 +55,7 @@ public class MovePlayer : MonoBehaviour
     public void StopRun()
     {
         _statePlayer.StopAnimationMove();
+        _rigidbody.velocity = new Vector3(0,0,0);
         _isRun = false;
     }
     public void StopRunIntoObstacle()

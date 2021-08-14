@@ -4,7 +4,7 @@ public class PlayerCollider : MonoBehaviour
 {
     public delegate void Player();
     public static event Player Finish;
-    [SerializeField] private StatePlayer _statePlayer;
+    private StatePlayer _statePlayer;
     private MovePlayer _movePlayer;
     private Game _game;
 
@@ -28,8 +28,23 @@ public class PlayerCollider : MonoBehaviour
 
         if (other.CompareTag("Finish"))
         {
+            Debug.Log("Финиш");
             _game.Finish();
+            _movePlayer.StopRun();
             _statePlayer.PlayAnimationVictory();
+        }
+    }
+
+    private void OnCollisionEnter(Collision other) {
+        if(other.collider.CompareTag("Obstacle")){
+            Debug.Log("Коснулись стены!");
+            _movePlayer.StopRunIntoObstacle();
+        }
+    }
+    private void OnCollisionExit(Collision other) {
+        if(other.collider.CompareTag("Obstacle")){
+            Debug.Log("Ушли от стены!");
+            _movePlayer.StartRun();
         }
     }
 }

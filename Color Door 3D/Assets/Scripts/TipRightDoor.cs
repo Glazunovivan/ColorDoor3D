@@ -7,6 +7,8 @@ public class TipRightDoor : MonoBehaviour
     [SerializeField] private float _waitSeconds = 1f;
     private int _hashDoorRight = Animator.StringToHash("Right door_appear");
 
+    public bool IsAllowedToPlay = false;
+
     private void Start()
     {
         StartCoroutine(StartAnimation());    
@@ -22,5 +24,6 @@ public class TipRightDoor : MonoBehaviour
             yield return new WaitForSeconds(_waitSeconds);
             icon.gameObject.SetActive(false);
         }
+        IsAllowedToPlay = true;
     }
 }
