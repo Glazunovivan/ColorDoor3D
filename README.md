@@ -1,4 +1,4 @@
 # ColorDoor3D
-Commercial project for kwork, with Unity Android
+Прототип раннера, в котором необходимо выбрать на своем пути правильные двери.
 
-Проект для заказчика из Белоруссии. Прототип раннера с выбором правильной двери на пути.
+Видео на геймплей: https://drive.google.com/file/d/1Q3qMdDheFOIzcYfLaa0U6u3zmNAL4BSP/view?usp=sharing
